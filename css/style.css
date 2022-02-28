@@ -14,3 +14,16 @@
 #search-btn:hover {
     background: #0059dd !important;
 }
+.phone-img {
+    transition: all 0.3s ease-in-out;
+}
+.phone-img:hover {
+    transform: scale(1.1);
+}
+.phone-desc {
+    background: #eeeeee;
+}
+#phone-btn {
+    padding: 8px 20px;
+    border-radius: 30px;
+}
