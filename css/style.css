@@ -1,3 +1,16 @@
-body{
-    background: pink;
+#search-field {
+    font-size: 18px;
+    width: 300px;
+    padding: 5px 15px;
+    border: 1px solid #161616;
+    border-radius: 30px;
+}
+#search-btn {
+    padding: 7px 17px;
+    border-radius: 30px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+#search-btn:hover {
+    background: #0059dd !important;
 }
