@@ -1,3 +1,4 @@
+/* Search Field CSS Start */
 #search-field {
     font-size: 18px;
     width: 300px;
@@ -14,6 +15,9 @@
 #search-btn:hover {
     background: #0059dd !important;
 }
+/* Search Field CSS End */
+
+/* Search Result CSS Start */
 .phone-img {
     transition: all 0.3s ease-in-out;
 }
@@ -32,6 +36,9 @@
     border-radius: 30px;
     display: none;
 }
+/* Search Result CSS End */
+
+/* Spinner CSS Start */
 .spinner {
     position: absolute;
     top: 50%;
@@ -39,10 +46,17 @@
     transform: translate(-50%, -50%);
     display: none;
 }
+/* Spinner CSS End */
+
+/* Single Phone Details CSS Start */
 .single-phone {
     margin: 20px;
-    border: 2px solid rgb(212, 212, 212);
-    border-radius: 30px;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 10px;
     padding: 20px;
     display: none;
 }
+.feature {
+    word-break: break-all;
+}
+/* Single Phone Details CSS End */

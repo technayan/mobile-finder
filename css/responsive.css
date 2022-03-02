@@ -1,0 +1,15 @@
+/* Mobile View CSS Start */
+
+@media (max-width: 575.98px) {
+    #search-field {
+        width: 170px;
+    }
+    #phone-btn {
+        padding: 5px 20px;
+    }
+    .single-phone {
+        margin: 20px 0px 0px;
+        padding: 10px;;
+    }
+}
+/* Mobile View CSS End */
