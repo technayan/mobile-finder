@@ -10,7 +10,8 @@ const spinner = document.getElementById('spinner');
 
 // Load Data Function
 const loadData = () => {
-
+    // Single Phone Details Remove
+    document.querySelector('.single-phone').style.display = "none";
     // Show Spinner
     spinner.style.display = 'block';
 
@@ -71,7 +72,7 @@ const showPhone = (phone) => {
                 <h5 class="card-title">${phone.phone_name}</h5>
                 <p class="card-text">Brand : ${phone.brand}</p>
             </div>
-            <button class="btn btn-primary" id="phone-btn">Explore</button>
+            <button onclick="singleDataLoad('${phone.slug}')" class="btn btn-primary" id="phone-btn">Explore</button>
         </div>
     </div>`;
 
@@ -79,6 +80,85 @@ const showPhone = (phone) => {
     results.appendChild(phoneContainer); 
 }
 
+const singleDataLoad = (phoneId) => {
+    fetch(`https://openapi.programming-hero.com/api/phone/${phoneId}`)
+        .then(res => res.json())
+        .then(single => singlePhoneDetails(single))
+}
+
+const singlePhoneDetails = (single) => {
+    document.querySelector('.single-phone').style.display = "block";
+    console.log(single);
+    const singlePhone = document.getElementById('single-phone-details');
+    singlePhone.innerHTML = `
+    <div class="col-4 text-center">
+        <img src="${single.data.image}" alt="" class=" w-75">
+    </div>
+    <div class="col-8">
+        <h2>${single.data.name}</h2>
+        <p>Brand: <span>${single.data.brand}</span></p>
+        <p>Release Date: <span>${single.data.releaseDate}</span></p>
+        <div class="row">
+            <h5>Features:</h5>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>Storage:</td>
+                    <td>${single.data.mainFeatures.storage}</td>
+                </tr>
+                <tr>
+                    <td>Display Size:</td>
+                    <td>${single.data.mainFeatures.displaySize}</td>
+                </tr>
+                <tr>
+                    <td>Chipset:</td>
+                    <td>${single.data.mainFeatures.chipSet}</td>
+                </tr>
+                <tr>
+                    <td>Memory:</td>
+                    <td>${single.data.mainFeatures.memory}</td>
+                </tr>
+                <tr>
+                    <td>Sensor:</td>
+                    <td>${single.data.mainFeatures.sensors}</td>
+                </tr>
+                </tbody>
+            </table>
+            <h5>Others:</h5>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>WLAN:</td>
+                    <td>${single.data?.others?.WLAN}</td>
+                </tr>
+                <tr>
+                    <td>Bluetooth:</td>
+                    <td>${single.data?.others?.Bluetooth}</td>
+                </tr>
+                <tr>
+                    <td>GPS:</td>
+                    <td>${single.data?.others?.GPS}</td>
+                </tr>
+                <tr>
+                    <td>NFC:</td>
+                    <td>${single.data?.others?.NFC}</td>
+                </tr>
+                <tr>
+                    <td>Radio:</td>
+                    <td>${single.data?.others?.Radio}</td>
+                </tr>
+                <tr>
+                    <td>USB:</td>
+                    <td>${single.data?.others?.USB}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    `;
+    window.scrollTo(0, 0);
+    console.log(single.data.name);
+}
 
 // Error Message Function 
 const errorMessage = (errorText) => {
