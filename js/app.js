@@ -51,6 +51,7 @@ const showData = (phones) => {
             })
         }
     } else {
+        // Hide Spinner
         spinner.style.display = 'none';
 
         // Error Message Function Calling
@@ -79,12 +80,14 @@ const showPhone = (phone) => {
     results.appendChild(phoneContainer); 
 }
 
+// Single Data Load Function
 const singleDataLoad = (phoneId) => {
     fetch(`https://openapi.programming-hero.com/api/phone/${phoneId}`)
         .then(res => res.json())
         .then(single => singlePhoneDetails(single))
 }
 
+// Single Phone Details Function
 const singlePhoneDetails = (single) => {
     document.querySelector('.single-phone').style.display = "block";
     const singlePhone = document.getElementById('single-phone-details');
