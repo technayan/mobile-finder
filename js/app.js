@@ -37,7 +37,6 @@ const showData = (phones) => {
         const resultsQnt = phones.data;
         if (resultsQnt.length > 20) {
             const firstTwenty = resultsQnt.slice(0,20);
-            console.log(firstTwenty);
             firstTwenty.forEach(phone => {
 
                 // Show Phon On UI Function Calling
@@ -88,7 +87,6 @@ const singleDataLoad = (phoneId) => {
 
 const singlePhoneDetails = (single) => {
     document.querySelector('.single-phone').style.display = "block";
-    console.log(single);
     const singlePhone = document.getElementById('single-phone-details');
     singlePhone.innerHTML = `
     <div class="col-md-4 text-center">
@@ -159,7 +157,6 @@ const singlePhoneDetails = (single) => {
     </div>
     `;
     window.scrollTo(0, 0);
-    console.log(single.data.name);
 }
 
 // Error Message Function 
